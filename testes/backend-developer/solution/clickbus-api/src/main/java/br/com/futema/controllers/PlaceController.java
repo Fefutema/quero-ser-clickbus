@@ -1,6 +1,9 @@
 package br.com.futema.controllers;
 
+import java.net.URI;
 import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.futema.controllers.parameters.PlaceParameter;
+import br.com.futema.presenters.PlacePresenter;
 import br.com.futema.services.PlaceService;
 
 @RestController
@@ -24,15 +29,23 @@ public class PlaceController {
 	private PlaceService placeService;
 	
 	@PostMapping
-	public ResponseEntity<?> savePlace(@RequestBody PlaceParameter parameter) {
+	public ResponseEntity<?> savePlace(@Valid @RequestBody PlaceParameter parameter) {
 		
-		return ResponseEntity.ok("");
+		PlacePresenter place = placeService.savePlace(parameter);
+		
+		URI location = ServletUriComponentsBuilder
+							.fromCurrentRequest().path("/{id}")
+							.buildAndExpand(place.getId()).toUri();
+		
+		return ResponseEntity.created(location).body(place);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> editPlace(@RequestBody PlaceParameter parameter, @PathVariable("id") Long id) {
+	public ResponseEntity<?> editPlace(@Valid @RequestBody PlaceParameter parameter, @PathVariable("id") Long id) {
 		
-		return ResponseEntity.ok("");
+		PlacePresenter place = placeService.updatePlace(parameter, id);
+		
+		return ResponseEntity.ok(place);
 	} 
 	
 	@GetMapping

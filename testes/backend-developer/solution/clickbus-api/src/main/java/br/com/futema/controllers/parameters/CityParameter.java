@@ -1,9 +1,12 @@
 package br.com.futema.controllers.parameters;
 
+import javax.validation.constraints.NotBlank;
+
 import br.com.futema.persistence.entities.City;
 
 public class CityParameter {
 
+	@NotBlank(message = "City name must not be null")
 	private String name;
 	private StateParameter state;
 

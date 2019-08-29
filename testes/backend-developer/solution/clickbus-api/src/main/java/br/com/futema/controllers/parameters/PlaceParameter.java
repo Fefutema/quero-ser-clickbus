@@ -1,10 +1,15 @@
 package br.com.futema.controllers.parameters;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import br.com.futema.persistence.entities.Place;
 
 public class PlaceParameter {
 
+	@NotBlank(message = "Place name must not be null")
 	private String name;
+	@NotBlank(message = "The slug must not be null")
 	private String slug;
 
 	private CityParameter city;

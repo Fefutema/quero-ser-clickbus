@@ -1,9 +1,12 @@
 package br.com.futema.controllers.parameters;
 
+import javax.validation.constraints.NotBlank;
+
 import br.com.futema.persistence.entities.State;
 
 public class StateParameter {
 
+	@NotBlank(message = "State name must not be null")
 	private String name;
 
 	public State toEntity() {
