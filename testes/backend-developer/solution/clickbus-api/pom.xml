@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>br.com.futema</groupId>
 	<artifactId>clickbus-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>clickbus-api</name>
 	<description>Challenge clickbus api</description>
 
