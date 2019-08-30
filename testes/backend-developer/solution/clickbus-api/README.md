@@ -6,7 +6,7 @@
 
 ## Endpoints
 
-- POST -> localhost:8091/v1/challenge/places
+- POST -> https://futema-clickbus-challenge.herokuapp.com/v1/challenge/places
 Payload:
 {
 	"name": "Restaurante_novo",
@@ -19,7 +19,7 @@ Payload:
 	}
 }
 
-- PUT -> localhost:8091/v1/challenge/places/1(ID do lugar)
+- PUT -> https://futema-clickbus-challenge.herokuapp.com/v1/challenge/places/1(ID do lugar)
 Payload:
 {
 	"name": "Restaurante_tres_UPDATE",
@@ -32,12 +32,12 @@ Payload:
 	}
 }
 
-- GET -> localhost:8091/v1/challenge/places?name=Restaurante_tres_update
+- GET -> https://futema-clickbus-challenge.herokuapp.com/v1/challenge/places?name=Restaurante_tres_update
 	- Busca lugares através do nome
 
-- GET -> localhost:8091/v1/challenge/places
+- GET -> https://futema-clickbus-challenge.herokuapp.com/v1/challenge/places
 	- Busca todos os lugares
 	
-- GET -> localhost:8091/v1/challenge/places/1(ID do lugar)
+- GET -> https://futema-clickbus-challenge.herokuapp.com/v1/challenge/places/1(ID do lugar)
 	- Busca lugares por id
 
