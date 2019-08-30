@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TB_CITY")
-public class City extends AbstractEntity {
+public class City {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TB_STATE")
-public class State extends AbstractEntity{
+public class State {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

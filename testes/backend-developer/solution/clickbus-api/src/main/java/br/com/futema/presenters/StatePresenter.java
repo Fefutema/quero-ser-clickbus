@@ -2,11 +2,14 @@ package br.com.futema.presenters;
 
 import br.com.futema.persistence.entities.State;
 
-public class StatePresenter extends AbstractPresenter {
+public class StatePresenter {
 
 	private Long id;
 	private String name;
 
+	public StatePresenter() {
+	}
+	
 	public StatePresenter(State state) {
 		this.id = state.getId();
 		this.name = state.getName();

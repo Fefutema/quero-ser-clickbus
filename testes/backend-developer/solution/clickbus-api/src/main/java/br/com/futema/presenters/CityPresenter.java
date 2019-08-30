@@ -2,12 +2,15 @@ package br.com.futema.presenters;
 
 import br.com.futema.persistence.entities.City;
 
-public class CityPresenter extends AbstractPresenter {
+public class CityPresenter {
 
 	private Long id;
 	private String name;
 	private StatePresenter state;
 
+	public CityPresenter() {
+	}
+	
 	public CityPresenter(City city) {
 		this.id = city.getId();
 		this.name = city.getName();

@@ -1,17 +1,20 @@
 package br.com.futema.controllers.parameters;
 
+import java.util.Date;
+
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import br.com.futema.persistence.entities.Place;
 
 public class PlaceParameter {
 
-	@NotBlank(message = "Place name must not be null")
+	@NotBlank(message = "Place name must not be null or empty")
 	private String name;
-	@NotBlank(message = "The slug must not be null")
+	@NotBlank(message = "The slug must not be null or empty")
 	private String slug;
 
+	@Valid
 	private CityParameter city;
 
 	public Place toEntity() {
@@ -19,6 +22,17 @@ public class PlaceParameter {
 		place.setName(this.name);
 		place.setSlug(this.slug);
 		place.setCity(this.city.toEntity());
+		
+		return place;
+	}
+	
+	public Place toEntity(Long id, Date createdAt) {
+		Place place = new Place();
+		place.setId(id);
+		place.setName(this.name);
+		place.setSlug(this.slug);
+		place.setCity(this.city.toEntity());
+		place.setCreatedAt(createdAt);
 		
 		return place;
 	}

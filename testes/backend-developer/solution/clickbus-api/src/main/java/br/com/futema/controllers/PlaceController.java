@@ -49,12 +49,12 @@ public class PlaceController {
 	} 
 	
 	@GetMapping
-	public ResponseEntity<?> listPlaces(@RequestParam("name") List<String> names) {
+	public ResponseEntity<?> listPlaces(@RequestParam(name="name", required=false) List<String> names) {
 		
 		return ResponseEntity.ok(placeService.getPlacesByName(names));
 	}
 	
-	@PostMapping("/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> getPlaceById(@PathVariable("id") Long id) {
 		
 		return ResponseEntity.ok(placeService.getPlaceById(id));

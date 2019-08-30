@@ -6,7 +6,7 @@ import br.com.futema.persistence.entities.State;
 
 public class StateParameter {
 
-	@NotBlank(message = "State name must not be null")
+	@NotBlank(message = "State name must not be null or empty")
 	private String name;
 
 	public State toEntity() {
