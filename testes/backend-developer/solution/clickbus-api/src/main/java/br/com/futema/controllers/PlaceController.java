@@ -6,6 +6,9 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EurekaDiscoveryClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +33,14 @@ public class PlaceController {
 	
 	@PostMapping
 	public ResponseEntity<?> savePlace(@Valid @RequestBody PlaceParameter parameter) {
+
+		DiscoveryClient d = new EurekaDiscoveryClient(null, null);
+		for (String id :d.getServices()) {
+			List<ServiceInstance> instances = d.getInstances(id);
+			for (ServiceInstance instance : instances) {
+				
+			}
+		}
 		
 		PlacePresenter place = placeService.savePlace(parameter);
 		
