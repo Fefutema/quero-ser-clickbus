@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration
 @ComponentScan("br.com.futema")
 @SpringBootApplication
+//@SpringCloudApplication
 public class ClickbusApiApplication {
 
 	public static void main(String[] args) {
